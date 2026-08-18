@@ -81,6 +81,9 @@ def update_student(id):
 def delete_student(id):
 
     student = StudentService.delete_student(id)
+    
+    
+    # controller-change some thing check the branch 
 
     if student is None:
 
@@ -91,4 +94,7 @@ def delete_student(id):
     return jsonify({
         "message": "Student deleted successfully",
         "id": id
+        
     })
+
+
