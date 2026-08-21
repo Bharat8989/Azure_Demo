@@ -19,7 +19,7 @@ def get_teachers():
         for teacher in teachers
     ])
 
-@teacher_controller.route("/teacher", methods=["POST"])
+@teacher_controller.route("/teacher", methods=["POST"]) 
 def save_teacher():
     data = request.get_json()
     teacher = TeacherService.create_teacher(data)
