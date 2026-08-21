@@ -5,14 +5,18 @@ from services.student_service import StudentService
 
 student_controller = Blueprint(
     "student_controller",
-    __name__
+    __name__,
+    url_prefix="/student"
 )
 
 
-@student_controller.route(
-    "/students",
-    methods=["GET"]
-)
+
+
+
+# =========================
+# GET ALL STUDENTS
+# =========================
+@student_controller.route("/", methods=["GET"])
 def get_students():
 
     students = StudentService.get_all_students()
@@ -28,16 +32,14 @@ def get_students():
     ])
 
 
-@student_controller.route(
-    "/student",
-    methods=["POST"]
-)
+# =========================
+# CREATE STUDENT
+# =========================
+@student_controller.route("/", methods=["POST"])
 def save_student():
 
-   
     data = request.get_json()
 
-    
     student = StudentService.create_student(data)
 
     return jsonify({
@@ -46,10 +48,10 @@ def save_student():
     }), 201
 
 
-@student_controller.route(
-    "/student/<int:id>",
-    methods=["PUT"]
-)
+# =========================
+# UPDATE STUDENT
+# =========================
+@student_controller.route("/<int:id>", methods=["PUT"])
 def update_student(id):
 
     data = request.get_json()
@@ -60,7 +62,6 @@ def update_student(id):
     )
 
     if student is None:
-
         return jsonify({
             "message": "Student not found"
         }), 404
@@ -71,22 +72,18 @@ def update_student(id):
         "name": student.name,
         "email": student.email,
         "marks": student.marks
-    })
+    }), 200
 
 
-@student_controller.route(
-    "/student/<int:id>",
-    methods=["DELETE"]
-)
+# =========================
+# DELETE STUDENT
+# =========================
+@student_controller.route("/<int:id>", methods=["DELETE"])
 def delete_student(id):
 
     student = StudentService.delete_student(id)
-    
-    
-    # controller-change some thing check the branch 
 
     if student is None:
-
         return jsonify({
             "message": "Student not found"
         }), 404
@@ -94,7 +91,4 @@ def delete_student(id):
     return jsonify({
         "message": "Student deleted successfully",
         "id": id
-        
-    })
-
-
+    }), 200
