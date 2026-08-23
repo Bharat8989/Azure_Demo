@@ -7,6 +7,7 @@ from controllers.student_controller import student_controller
 from controllers.teacher_controller import teacher_controller
 
 
+
 app = Flask(__name__)
 
 
