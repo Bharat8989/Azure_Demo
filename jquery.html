@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery AJAX Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        #quoteText {
+            background: #e8f4f8;
+            padding: 20px;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            min-height: 60px;
+        }
+        .loading {
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: #d32f2f;
+        }
+        .success {
+            color: #388e3c;
+        }
+    </style>
+    <!-- Include jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Local quotes database - no external API needed
+        const quotes = [
+            { content: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { content: "Innovation distinguishes between a leader and a follower.", author: "Steve Jobs" },
+            { content: "Life is what happens when you're busy making other plans.", author: "John Lennon" },
+            { content: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { content: "It is during our darkest moments that we must focus to see the light.", author: "Aristotle" },
+            { content: "The only impossible journey is the one you never begin.", author: "Tony Robbins" },
+            { content: "Success is not final, failure is not fatal.", author: "Winston Churchill" },
+            { content: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { content: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+            { content: "Your time is limited, don't waste it living someone else's life.", author: "Steve Jobs" },
+            { content: "The way to get started is to quit talking and begin doing.", author: "Walt Disney" },
+            { content: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson" },
+            { content: "The future is created by what you do today, not tomorrow.", author: "Zora Neale Hurston" },
+            { content: "Believe in yourself. You are braver than you think, more talented than you know, and capable of more than you imagine.", author: "Roy T. Bennett" },
+            { content: "I learned that courage was not the absence of fear, but the triumph over it.", author: "Nelson Mandela" }
+        ];
+
+        function getRandomQuote() {
+            return quotes[Math.floor(Math.random() * quotes.length)];
+        }
+
+        $(document).ready(function() {
+            // Trigger when button is clicked
+            $("#fetchBtn").click(function() {
+                var btn = $(this);
+                var quoteText = $("#quoteText");
+                
+                btn.prop('disabled', true);
+                quoteText.html('<span class="loading">Loading quote...</span>');
+                
+                // Simulate a small delay for better UX
+                setTimeout(function() {
+                    var quote = getRandomQuote();
+                    quoteText.html(`<span class="success">"${quote.content}"<br/> — ${quote.author}</span>`);
+                    btn.prop('disabled', false);
+                }, 500);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📖 Random Quote Generator</h2>
+        <p>Click the button below to fetch a random quote:</p>
+        
+        <button id="fetchBtn">Get Random Quote</button>
+        
+        <p id="quoteText">Click the button above to load a quote dynamically.</p>
+    </div>
+
+</body>
+</html>

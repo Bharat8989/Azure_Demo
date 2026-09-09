@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Portal - Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<main class="page">
+
+    <section
+        class="card"
+        aria-labelledby="dashboard-title"
+    >
+
+        <header class="card-header">
+            <h1 id="dashboard-title">
+                Welcome to Your Dashboard
+            </h1>
+
+            <p>
+                Your student account information
+            </p>
+        </header>
+
+        <div
+            id="loading"
+            class="alert"
+            role="status"
+            aria-live="polite"
+        >
+            Loading your information...
+        </div>
+
+        <div
+            id="dashboard-content"
+            style="display: none;"
+        >
+
+            <div class="info-group">
+                <label>Student Name</label>
+                <p id="student-name">-</p>
+            </div>
+
+            <div class="info-group">
+                <label>Email Address</label>
+                <p id="student-email">-</p>
+            </div>
+
+            <div class="info-group">
+                <label>Student ID</label>
+                <p id="student-id">-</p>
+            </div>
+
+            <div class="info-group">
+                <label>Account Created</label>
+                <p id="created-at">-</p>
+            </div>
+
+            <div class="info-group">
+                <label>Account Status</label>
+                <p id="account-status">-</p>
+            </div>
+
+            <button
+                type="button"
+                class="btn btn-danger"
+                onclick="logout()"
+            >
+                Logout
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="js/auth.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", loadDashboard);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Portal - Register</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<main class="page">
+
+    <section
+        class="card"
+        aria-labelledby="register-title"
+    >
+
+        <header class="card-header">
+            <h1 id="register-title">
+                Create Student Account
+            </h1>
+
+            <p>
+                Register to access your student portal.
+            </p>
+        </header>
+
+        <div
+            id="alert"
+            class="alert"
+            role="alert"
+            aria-live="polite"
+        ></div>
+
+        <form
+            id="register-form"
+            novalidate
+        >
+
+            <div class="form-group">
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    autocomplete="name"
+                    minlength="2"
+                    maxlength="100"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="128"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="128"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="btn"
+            >
+                Create Account
+            </button>
+
+        </form>
+
+        <footer class="form-footer">
+            Already have an account?
+            <a href="login.html">
+                Login
+            </a>
+        </footer>
+
+    </section>
+
+</main>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Portal - Login</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+<main class="page">
+
+    <section
+        class="card"
+        aria-labelledby="login-title"
+    >
+
+        <header class="card-header">
+            <h1 id="login-title">
+                Student Login
+            </h1>
+
+            <p>
+                Sign in to access your student portal.
+            </p>
+        </header>
+
+        <div
+            id="alert"
+            class="alert"
+            role="alert"
+            aria-live="polite"
+        ></div>
+
+        <form
+            id="login-form"
+            novalidate
+        >
+
+            <div class="form-group">
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autocomplete="email"
+                    maxlength="254"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="current-password"
+                    maxlength="128"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="btn"
+            >
+                Sign In
+            </button>
+
+        </form>
+
+        <footer class="form-footer">
+            Don't have an account?
+            <a href="index.html">
+                Register
+            </a>
+            |
+            <a href="forget-password.html">
+                Forgot Password?
+            </a>
+        </footer>
+
+    </section>
+
+</main>
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>
